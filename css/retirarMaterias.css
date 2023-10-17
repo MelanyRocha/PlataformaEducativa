@@ -1,0 +1,29 @@
+header{
+    height: 3rem;
+    color: white;
+    background-color: mediumseagreen;
+    text-align: center;
+}
+header p{
+    font-size: 1.7rem;
+}
+
+form{
+    width: 500px;
+    margin: 2rem;
+}
+
+.list-group-item{
+    padding: 1.5rem 3rem;
+}
+
+.btn{
+    width: 100%;
+    margin: 30px;
+}
+
+footer p{
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

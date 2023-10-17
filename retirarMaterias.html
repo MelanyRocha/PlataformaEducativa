@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retirar Materias</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/retirarMaterias.css"/>
+</head>
+<body>
+<header class="mx-auto">
+    <p>Plataforma Educativa</p>
+</header>
+<main>
+    <form class="mx-auto" action="php/eliminarMateria.php" method="post">
+        <h1>Retirar Materias</h1>
+        <p>Seleccione las materias que desea retirar.</p>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" id="algebra">
+                <label class="form-check-label" for="algebra">Algebra</label>
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" id="fisica1">
+                <label class="form-check-label" for="fisica1">Fisica I</label>
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" id="logica">
+                <label class="form-check-label" for="logica">Logica</label>
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" id="calculo2">
+                <label class="form-check-label" for="calculo2">Calculo II</label>
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" id="programacion">
+                <label class="form-check-label" for="programacion">Programación</label>
+            </li>
+        </ul>
+        <input type="submit" id="buttonmensaje" class="btn btn-primary btn-lg mx-auto" value="Enviar">
+    </form>
+</main>
+<footer class="bg-dark mx-auto">
+    <p>Plataforma Educativa - Sistemas de Información II</p>
+</footer>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
