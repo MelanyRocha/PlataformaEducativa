@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script src="obtenerTarea.js"></script>
     <script src="Entregar.js"></script>
     <title>Tarea</title>
 </head>
 <body>
 <div class="titulo-tarea">
-    <h1>Titulo de la tarea</h1>
+    <h1 id="titulo-tarea_h1">Titulo de la tarea</h1>
 </div>
 <div class="contenido">
     <div class="tarea-info">
-        <p>nombre docente - fecha publicacion tarea</p>
+        <p id="nombredocente">nombre docente</p>
+        <p id="fechaIni-fechafin">fecha publicacion tarea- fecha fin</p>
     </div>
     <div class="tarea-descripcion">
-        <p>descripcion de la tarea</p>
+        <p id="tarea-descripcion_p">descripcion de la tarea</p>
     </div>
     <!-- Aegamos el siguiente div para el campo de entrega -->
     <div id="adjuntos">
         <h3>Tu trabajo</h3>
         <ul id="lista-archivos">
-            <li>
-                <span>ejemplo.pdf</span>
-                <button onclick="eliminar(this)">X</button>
-            </li>
         </ul>
         <input type="file" id="agregar-archivo" onchange="agregar(this)" multiple>
         <div>
