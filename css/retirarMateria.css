@@ -1,3 +1,6 @@
+html, body{
+    transition: display 1s linear;
+}
 header{
     height: 3rem;
     color: white;
@@ -20,6 +23,16 @@ header p{
 .btn{
     width: 100%;
     margin-top: 30px;
+}
+
+#mensajeEliminacion{
+    display: none;
+    color: darkred;
+}
+
+#mensajeConfirmacion{
+    display: none;
+    color: limegreen;
 }
 
 footer p{
