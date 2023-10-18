@@ -1,12 +1,10 @@
-html, body{
-    transition: display 1s linear;
-}
 header{
     height: 3rem;
     color: white;
     background-color: mediumseagreen;
     text-align: center;
 }
+
 header p{
     font-size: 1.7rem;
 }
