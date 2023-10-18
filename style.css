@@ -1,0 +1,62 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Barra lateral de materias */
+aside {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-right: 1px solid #555;
+    min-height: 100vh;
+}
+
+#materias ul {
+    list-style: none;
+    padding: 0;
+}
+
+#materias li {
+    margin-bottom: 10px;
+}
+
+#materias a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#materias a:hover {
+    text-decoration: underline;
+}
+
+/* Área de contenido */
+.col-8 {
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Estilos adicionales */
+/* Agrega tus estilos personalizados aquí */
+
