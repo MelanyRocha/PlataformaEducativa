@@ -1,62 +1,49 @@
-/* Estilos generales */
+/* Establecer el fondo a magenta pastel */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    background-color: #fca3e3;
 }
 
+/* Centrar el contenido en la pantalla */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* Encabezado */
+/* Estilo para el encabezado */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
     text-align: center;
 }
 
-header h1 {
-    font-size: 24px;
+/* Estilo para la lista de materias */
+#materias {
+    background-color: #b6eaea; /* Azul celeste */
+    border: 2px solid #6700cd; /* Azul oscuro */
+    padding: 10px;
+    border-radius: 10px;
 }
 
-/* Barra lateral de materias */
-aside {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    border-right: 1px solid #555;
-    min-height: 100vh;
+#materias h2 {
+    text-align: center;
 }
 
-#materias ul {
-    list-style: none;
+/* Estilo para la lista de materias */
+#materias ol {
+    list-style-type: none;
     padding: 0;
 }
 
 #materias li {
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 #materias a {
-    color: #fff;
+    color: #0000CD; /* Azul oscuro */
     text-decoration: none;
 }
 
 #materias a:hover {
-    text-decoration: underline;
+    color: #4169E1; /* Azul real */
 }
-
-/* Área de contenido */
-.col-8 {
-    padding: 20px;
-    background-color: #fff;
-}
-
-/* Estilos adicionales */
-/* Agrega tus estilos personalizados aquí */
-
