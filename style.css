@@ -1,6 +1,8 @@
 /* Establecer el fondo a magenta pastel */
 body {
-    background-color: #fca3e3;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    background-color: hsl(257, 40%, 49%);
 }
 
 /* Centrar el contenido en la pantalla */
@@ -9,7 +11,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 60vh; /*100vh*/
 }
 
 /* Estilo para el encabezado */
@@ -19,9 +21,9 @@ header {
 
 /* Estilo para la lista de materias */
 #materias {
-    background-color: #b6eaea; /* Azul celeste */
-    border: 2px solid #6700cd; /* Azul oscuro */
-    padding: 10px;
+    background-color: #f5e1ee;
+    border: 1px solid #000000;
+    padding: 50px;
     border-radius: 10px;
 }
 
@@ -32,15 +34,15 @@ header {
 /* Estilo para la lista de materias */
 #materias ol {
     list-style-type: none;
-    padding: 0;
+    padding: 0;/*0*/
 }
 
 #materias li {
-    margin: 10px 0;
+    margin: 30px 0;
 }
 
 #materias a {
-    color: #0000CD; /* Azul oscuro */
+    color: #000000; /* Azul oscuro */
     text-decoration: none;
 }
 
