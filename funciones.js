@@ -1,36 +1,52 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const tareasLista = document.getElementById("tareasLista");
+    const contenidoTarea = document.getElementById("contenidoTarea");
 
-document.addEventListener('DOMContentLoaded', function() {
-    loadTasks();
-});
+    function cargarTareas() {
+        fetch("obtener_tareas.php")
+            .then((response) => response.json())
+            .then((data) => {
+                tareasLista.innerHTML = "";
 
-function loadTasks() {
-    // Create a new XMLHttpRequest object
-    let xhr = new XMLHttpRequest();
+                if (data.length > 0) {
+                    data.forEach((tarea) => {
+                        const tareaElement = document.createElement("li");
+                        tareaElement.className = "list-group-item";
+                        tareaElement.innerHTML = `
+                            <a href="#" data-id="${tarea.id}">${tarea.nombre}</a>
+                        `;
+                        tareasLista.appendChild(tareaElement);
+                    });
 
-    // Define the callback function to handle the response
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            let taskList = document.getElementById('taskList');
-            taskList.innerHTML = ''; // Clear existing tasks
-
-            let data = JSON.parse(xhr.responseText);
-
-            data.forEach(function(task) {
-                let listItem = document.createElement('div');
-                listItem.classList.add('list-group-item');
-                listItem.innerHTML = '<p><strong>Nombre:</strong> ' + task.nombre + '</p>' +
-                    '<p><strong>Entrega Día:</strong> ' + task.entrega_dia + '</p>' +
-                    '<p><strong>Entrega Hora:</strong> ' + task.entrega_hora + '</p>';
-                taskList.appendChild(listItem);
+                    const enlacesTareas = tareasLista.querySelectorAll("a");
+                    enlacesTareas.forEach((enlace) => {
+                        enlace.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            mostrarTarea(this.getAttribute("data-id"));
+                        });
+                    });
+                } else {
+                    tareasLista.innerHTML = "<p>No se encontraron tareas pendientes.</p>";
+                }
+            })
+            .catch(() => {
+                tareasLista.innerHTML = "<p>Error al cargar las tareas pendientes.</p>";
             });
-        } else {
-            console.error('Error fetching tasks:', xhr.statusText);
-        }
-    };
+    }
 
-    // Configure the request
-    xhr.open('GET', 'mostrar_tareas.php', true);
+    function mostrarTarea(id) {
+        fetch("obtener_tarea.php?id=" + id)
+            .then((response) => response.json())
+            .then((tarea) => {
+                contenidoTarea.innerHTML = `
+                    <h2>${tarea.nombre}</h2>
+                    <p><strong>Fecha de Entrega:</strong> ${tarea.entrega_dia} a las ${tarea.entrega_hora}</p>
+                `;
+            })
+            .catch(() => {
+                contenidoTarea.innerHTML = "<p>Error al cargar la tarea.</p>";
+            });
+    }
 
-    // Send the request
-    xhr.send();
-}
+    cargarTareas();
+});
