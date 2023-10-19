@@ -34,4 +34,3 @@ try {
     // En caso de error, mostrar el mensaje de error
     echo "Error: " . $e->getMessage();
 }
-?>
