@@ -49,3 +49,20 @@ header {
 #materias a:hover {
     color: #4169E1; /* Azul real */
 }
+#contenidoBox {
+    margin: 30px;
+    /* Aumentar el ancho del div */
+    width: 850px;
+    /* Aumentar el radio de las esquinas del div */
+    border-radius: 10px;
+    /* Cambiar el color de fondo del div */
+    background-color: #ffffff;
+    /* Agregar una sombra al div */
+    box-shadow: 5px 5px 10px 0 #888888;
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
