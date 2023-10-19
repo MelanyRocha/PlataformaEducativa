@@ -2,31 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const tareasLista = document.getElementById("tareasLista");
     const contenidoTarea = document.getElementById("contenidoTarea");
 
-    function cargarTareas() {
+    function cargarTareasPendientes() {
         fetch("obtener_tareas.php")
             .then((response) => response.json())
-            .then((data) => {
+            .then((tareas) => {
                 tareasLista.innerHTML = "";
 
-                if (data.length > 0) {
-                    data.forEach((tarea) => {
+                if (tareas.length > 0) {
+                    tareas.forEach((tarea, index) => {
                         const tareaElement = document.createElement("li");
-                        tareaElement.className = "list-group-item";
-                        tareaElement.innerHTML = `
-                            <a href="#" data-id="${tarea.id}">${tarea.nombre}</a>
-                        `;
+                        tareaElement.classList.add("list-group-item");
+                        tareaElement.textContent = tarea.nombre;
+
+                        tareaElement.addEventListener("click", () => {
+                            cargarContenidoTarea(tarea, index);
+                        });
+
                         tareasLista.appendChild(tareaElement);
                     });
-
-                    const enlacesTareas = tareasLista.querySelectorAll("a");
-                    enlacesTareas.forEach((enlace) => {
-                        enlace.addEventListener("click", function (e) {
-                            e.preventDefault();
-                            mostrarTarea(this.getAttribute("data-id"));
-                        });
-                    });
                 } else {
-                    tareasLista.innerHTML = "<p>No se encontraron tareas pendientes.</p>";
+                    tareasLista.innerHTML = "<p>No hay tareas pendientes.</p>";
                 }
             })
             .catch(() => {
@@ -34,19 +29,19 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    function mostrarTarea(id) {
-        fetch("obtener_tarea.php?id=" + id)
-            .then((response) => response.json())
-            .then((tarea) => {
-                contenidoTarea.innerHTML = `
-                    <h2>${tarea.nombre}</h2>
-                    <p><strong>Fecha de Entrega:</strong> ${tarea.entrega_dia} a las ${tarea.entrega_hora}</p>
-                `;
-            })
-            .catch(() => {
-                contenidoTarea.innerHTML = "<p>Error al cargar la tarea.</p>";
-            });
+    function cargarContenidoTarea(tarea, index) {
+        const tareaSeleccionada = tareasLista.children[index];
+        Array.from(tareasLista.children).forEach((item) => {
+            item.classList.remove("active");
+        });
+        tareaSeleccionada.classList.add("active");
+
+        contenidoTarea.innerHTML = `
+            <h3>${tarea.nombre}</h3>
+            <p><strong>Entrega Día:</strong> ${tarea.entrega_dia}</p>
+            <p><strong>Entrega Hora:</strong> ${tarea.entrega_hora}</p>
+        `;
     }
 
-    cargarTareas();
+    cargarTareasPendientes();
 });
