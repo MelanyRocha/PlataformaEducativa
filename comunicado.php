@@ -1,35 +1,12 @@
 <?php
-$host = "database-plataformaedu.cclomwjbpd4h.sa-east-1.rds.amazonaws.com";
-$usuario = "admin";
-$password = "admin12345";
-$nombre_db = "tu_base_de_datos";
-$puerto = 3306;
-
-// Realiza la conexión a la base de datos
-$mysqli = new mysqli($host, $usuario, $password, $nombre_db, $puerto);
-
-if ($mysqli->connect_error) {
-    die("Error de conexión a la base de datos: " . $mysqli->connect_error);
-}
-
-// Establece la conexión a la base de datos
-$host = 'database-plataformaedu.cclomwjbpd4h.sa-east-1.rds.amazonaws.com';
-$port = 3306;
-$username = 'admin';
-$password = 'admin12345';
-$database = 'nombre_de_la_base_de_datos'; // Reemplaza con el nombre de tu base de datos
-
-$mysqli = new mysqli($host, $username, $password, $database, $port);
-
-if ($mysqli->connect_error) {
-    die("Error de conexión: " . $mysqli->connect_error);
-}
+global $pdo;
+require_once 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = $_POST['comment'];
 
-    $stmt = $mysqli->prepare("INSERT INTO comentarios (texto) VALUES (?)");
-    $stmt->bind_param("s", $comment);
+    $stmt = $pdo->prepare("INSERT INTO comentarios (texto) VALUES (:comment)");
+    $stmt->bindParam(':comment', $comment);
 
     if ($stmt->execute()) {
         echo "Comentario agregado con éxito.";
@@ -37,12 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Error al agregar el comentario.";
     }
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Recuperar comentarios
+    // Código para obtener comentarios
     $comments = [];
-    $result = $mysqli->query("SELECT texto FROM comentarios ORDER BY id DESC");
+    $result = $pdo->query("SELECT texto FROM comentarios ORDER BY id DESC");
 
     if ($result) {
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch()) {
             $comments[] = $row['texto'];
         }
     }
@@ -55,20 +32,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '</ul>';
 }
 
-$mysqli->close();
 
-
-// Realiza una consulta para obtener las tareas pendientes
-$result = $mysqli->query("SELECT nombre FROM tareas");
-
-$tareas = array();
-while ($row = $result->fetch_assoc()) {
-    $tareas[] = $row;
-}
-
-// Devuelve las tareas en formato JSON
-echo json_encode($tareas);
-
-$mysqli->close();
-?>
 
