@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Envía el comentario al servidor (PHP) a través de una solicitud AJAX
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'comments.php', true);
+        xhr.open('POST', 'comentarios.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función para cargar los comentarios desde el servidor
     function loadComments() {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'comments.php', true);
+        xhr.open('GET', 'comentarios.php', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 commentsList.innerHTML = xhr.responseText;
