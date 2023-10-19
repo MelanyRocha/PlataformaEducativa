@@ -1,42 +1,79 @@
-// Función para agregar un nuevo archivo a la lista
-  function agregar(input) {
+// Variable global que almacena los nombres de los archivos
+let archivos = [];
+
+// Versión mejorada con jQuery
+function agregar(input) {
     // Obtener el nombre del archivo seleccionado
-    let nombre = input.files[0].name;
-    // Crear un elemento li con el nombre y un botón para eliminar
-    let li = document.createElement("li");
-    li.innerHTML = '<span>' + nombre + '</span> <button onclick="eliminar(this)">X</button>';
-    // Añadir el elemento li a la lista de archivos
-    let lista = document.getElementById("lista-archivos");
-    lista.appendChild(li);
+    let archivo = input.files[0];
+    if (archivo) {
+        let nombre = archivo.name;
+        // Añadir el nombre del archivo al array global
+        archivos.push(nombre);
+        // Crear un elemento li con el nombre y un botón para eliminar
+        let li = $("<li></li>");
+        li.html('<span>' + nombre + '</span> <button>X</button>');
+        // Añadir un evento de clic al botón para eliminar el archivo
+        li.children("button").click(eliminar);
+        // Añadir el elemento li a la lista de archivos
+        let lista = $("#lista-archivos");
+        lista.append(li);
+    }
     // Limpiar el input para poder seleccionar otro archivo
     input.value = "";
-  }
+}
 
-  // Función para eliminar un archivo de la lista
-  function eliminar(boton) {
+// Función para eliminar un archivo de la lista
+function eliminar(event) {
     // Obtener el elemento li que contiene el botón
-    let li = boton.parentElement;
+    let li = $(event.target).parent();
+    // Obtener el nombre del archivo a eliminar
+    let nombre = li.children("span").text();
+    // Eliminar el nombre del archivo del array global
+    archivos = archivos.filter(a => a !== nombre);
     // Eliminar el elemento li de la lista de archivos
-    let lista = document.getElementById("lista-archivos");
-    lista.removeChild(li);
-  }
+    let lista = $("#lista-archivos");
+    lista.remove(li);
+}
 
-  // Función para cancelar la entrega
-  function cancelar() {
+// Función para cancelar la entrega
+function cancelar() {
     // Eliminar todos los elementos li de la lista de archivos
-    let lista = document.getElementById("lista-archivos");
-    lista.innerHTML = "";
-  }
+    let lista = $("#lista-archivos");
+    lista.empty();
+    // Vaciar el array global de archivos
+    archivos = [];
+}
 
-  // Función para enviar la entrega
-  function entregar() {
-    // Obtener los nombres de los archivos adjuntos
-    let archivos = [];
-    let lista = document.getElementById("lista-archivos");
-    for (let li of lista.children) {
-      let nombre = li.children[0].textContent;
-      archivos.push(nombre);
+// Función para enviar la entrega al servidor
+// Función para enviar la entrega al servidor
+function entregar() {
+    // Crear un formulario para enviar los archivos al servidor
+    let formData = new FormData();
+    for (let i = 0; i < archivos.length; i++) {
+        formData.append('archivo[]', archivos[i]);
     }
-    // Mostrar un mensaje con los archivos enviados
-    alert("Has enviado los siguientes archivos: " + archivos.join(", "));
-  }
+
+    // Realizar una solicitud AJAX para enviar los archivos al servidor
+    $.ajax({
+        url: "entregar.php",
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        contentType: false, // Añadir esta opción
+        processData: false, // Añadir esta opción
+        success: function(response) {
+            // Si se recibió una respuesta exitosa
+            alert("Has enviado los siguientes archivos: " + archivos.join(", "));
+            // Ocultar los botones de entregar y cancelar
+              $('#entregar').hide();
+              $('#cancelar').hide();
+              // Mostrar el botón de editar
+              $('#editar').show();
+        },
+        error: function(error) {
+            // Si se recibió un error
+            alert("Hubo un error al enviar los archivos.");
+        }
+    });
+}
+
