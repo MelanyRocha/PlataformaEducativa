@@ -5,7 +5,7 @@ require_once 'conexion.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = $_POST['comment'];
 
-    $stmt = $pdo->prepare("INSERT INTO comentarios (texto) VALUES (:comment)");
+    $stmt = $pdo->prepare("INSERT INTO Plataformaedu.comentarios (texto) VALUES (:comment)");
     $stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $comments = [];
-    $result = $pdo->query("SELECT texto FROM comentarios ORDER BY id DESC");
+    $result = $pdo->query("SELECT texto FROM Plataformaedu.comentarios ORDER BY id DESC");
 
     if ($result) {
         while ($row = $result->fetch()) {
