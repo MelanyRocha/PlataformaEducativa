@@ -27,11 +27,11 @@
         </ul>
         <input type="file" id="agregar-archivo" onchange="agregar(this)" multiple>
         <div>
-            <button onclick="entregar()">Entregar</button>
-            <button onclick="cancelar()">Cancelar</button>
-            <button id="editar" style="display:none">Editar</button> <!-- Añadir este botón -->
+            <button onclick="entregar()" id="entregar">Entregar</button>
+            <button onclick="cancelar()" id="cancelar">Cancelar</button>
+            <button onclick="editarTarea()" id="editar-tarea-button" style="display:none">Editar</button>
         </div>
-
+    <input type="hidden" id="idEntregah">
     </div>
 </div>
 </body>

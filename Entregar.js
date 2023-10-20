@@ -31,8 +31,7 @@ function eliminar(event) {
     // Eliminar el nombre del archivo del array global
     archivos = archivos.filter(a => a !== nombre);
     // Eliminar el elemento li de la lista de archivos
-    let lista = $("#lista-archivos");
-    lista.remove(li);
+    li.remove(); // Corregido aquí
 }
 
 // Función para cancelar la entrega
@@ -44,7 +43,6 @@ function cancelar() {
     archivos = [];
 }
 
-// Función para enviar la entrega al servidor
 // Función para enviar la entrega al servidor
 function entregar() {
     // Crear un formulario para enviar los archivos al servidor
@@ -59,16 +57,18 @@ function entregar() {
         type: "POST",
         data: formData,
         dataType: "json",
-        contentType: false, // Añadir esta opción
-        processData: false, // Añadir esta opción
+        contentType: false,
+        processData: false,
         success: function(response) {
             // Si se recibió una respuesta exitosa
             alert("Has enviado los siguientes archivos: " + archivos.join(", "));
+            // Actualiza el valor del atributo oculto
+            $('#idEntregah').val(response.idEntrega);
             // Ocultar los botones de entregar y cancelar
-              $('#entregar').hide();
-              $('#cancelar').hide();
-              // Mostrar el botón de editar
-              $('#editar').show();
+            $('#entregar').hide();
+            $('#adjuntos').prop('disabled', true);
+            // Mostrar el botón de editar
+            $('#editar').show();
         },
         error: function(error) {
             // Si se recibió un error
@@ -76,4 +76,3 @@ function entregar() {
         }
     });
 }
-
