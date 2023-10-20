@@ -11,13 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Envía el comentario al servidor (PHP) a través de una solicitud AJAX
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'comentarios.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                // Recarga la lista de comentarios después de agregar uno
                 loadComments();
             }
         };
@@ -25,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         commentTextArea.value = '';
     });
 
-    // Función para cargar los comentarios desde el servidor
     function loadComments() {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'comentarios.php', true);
@@ -37,6 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send();
     }
 
-    // Carga los comentarios al cargar la página
     loadComments();
 });
+
