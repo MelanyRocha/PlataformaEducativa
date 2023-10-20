@@ -2,7 +2,7 @@
 global $pdo;
 include 'conexion.php';
 
-$query = "SELECT nombre, entrega_dia, entrega_hora FROM TareasPendientes";
+$query = "SELECT nombre, entrega_dia, entrega_hora FROM Plataformaedu.TareasPendientes";
 $result = $pdo->query($query);
 
 $tareasPendientes = [];
