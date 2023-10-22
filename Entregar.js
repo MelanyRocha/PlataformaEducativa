@@ -62,17 +62,48 @@ function entregar() {
         success: function(response) {
             // Si se recibió una respuesta exitosa
             alert("Has enviado los siguientes archivos: " + archivos.join(", "));
-            // Actualiza el valor del atributo oculto
-            $('#idEntregah').val(response.idEntrega);
             // Ocultar los botones de entregar y cancelar
             $('#entregar').hide();
             $('#adjuntos').prop('disabled', true);
             // Mostrar el botón de editar
             $('#editar').show();
+            location.reload ()
         },
         error: function(error) {
             // Si se recibió un error
             alert("Hubo un error al enviar los archivos.");
+        }
+    });
+}
+// Funcion para editar la entrega al servidor
+function editarTarea() {
+    // Crear un formulario para enviar los archivos al servidor
+    let formData = new FormData();
+    for (let i = 0; i < archivos.length; i++) {
+        formData.append('archivo[]', archivos[i]);
+    }
+
+    // Realizar una solicitud AJAX para enviar los archivos al servidor
+    $.ajax({
+        url: "editar.php",
+        type: "POST",
+        data: formData,
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            // Si se recibió una respuesta exitosa
+            alert("Has editado los siguientes archivos: " + archivos.join(", "));
+            // Ocultar los botones de entregar y cancelar
+            $('#entregar').hide();
+            $('#adjuntos').prop('disabled', true);
+            // Mostrar el botón de editar
+            $('#editar').show();
+            location.reload ()
+        },
+        error: function(error) {
+            // Si se recibió un error
+            alert("Hubo un error al editar los archivos.");
         }
     });
 }

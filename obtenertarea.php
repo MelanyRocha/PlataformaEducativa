@@ -4,7 +4,12 @@ global $pdo;
 include 'conexion.php';
 
 // Consulta SQL
-$query = "SELECT tituloTarea, descripcionTarea, nombreDocente, fechaIniTarea, fechaFinTarea FROM Plataformaedu.tarea WHERE idTarea = 1";
+$query = "SELECT t.tituloTarea, t.descripcionTarea, d.nombreDocente, d.apellidoDocente, t.fechaInicioTarea, t.fechaFinTarea
+    FROM Plataformaedu.tarea AS t, Plataformaedu.materia AS m, Plataformaedu.docente AS d
+    WHERE t.materia_idMateria = m.idMateria
+    AND m.docente_idDocente = d.idDocente
+    AND t.idTarea = 1;
+ ";
 
 try {
     // Ejecuta la consulta usando PDO
@@ -18,8 +23,8 @@ try {
         if ($fila) {
             $datos = array(
                 'titulo' => $fila['tituloTarea'],
-                'nombre_docente' => $fila['nombreDocente'],
-                'fecha' => $fila['fechaIniTarea'] . ' - ' . $fila['fechaFinTarea'],
+                'nombre_docente' => $fila['nombreDocente'] . ' ' . $fila['apellidoDocente'],
+                'fecha' => $fila['fechaInicioTarea'] . ' - ' . $fila['fechaFinTarea'],
                 'descripcion' => $fila['descripcionTarea']
             );
 

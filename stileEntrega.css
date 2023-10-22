@@ -120,3 +120,11 @@ h3 {
   line-height: 1.25rem;
   font-size: 0.875rem;
 }
+#entrega-info {
+    background-color: #f0f0f0; /* Fondo gris claro */
+    border: 1px solid #ccc; /* Borde gris */
+    padding: 10px; /* Espaciado interno */
+    margin: 10px 0; /* Espaciado externo */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+}

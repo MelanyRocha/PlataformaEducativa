@@ -11,7 +11,13 @@ $archivos_str = implode(",", $archivos);
 
 try {
     // Realizar la inserción en la tabla "entrega"
-    $sql = "INSERT INTO Plataformaedu.entrega (archivosEntrega, estadoEntrega, fechaEntrega, estudiante_idEstudiante, tarea_idTarea) VALUES (:nombre, 'yes',CURDATE(), 1, 1)";
+    $sql = "UPDATE Plataformaedu.entrega
+    SET archivosEntrega = :nombre,
+    fechaEntrega = CURDATE(),
+    nEditEntrega = nEditEntrega + 1
+    WHERE estudiante_idEstudiante = 1
+    AND tarea_idTarea = 1;
+";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':nombre', $archivos_str);
     $stmt->execute();
