@@ -1,6 +1,6 @@
 
   // Realiza una solicitud para obtener los datos del archivo PHP
-  fetch('obtenertarea.php') // Asegúrate de que la ruta sea correcta.
+  fetch('php/obtenertarea.php')
     .then(response => response.json())
     .then(data => {
      // Accede a los elementos HTML por su ID y asigna los datos obtenidos

@@ -53,7 +53,7 @@ function entregar() {
 
     // Realizar una solicitud AJAX para enviar los archivos al servidor
     $.ajax({
-        url: "entregar.php",
+        url: "php/entregar.php",
         type: "POST",
         data: formData,
         dataType: "json",
@@ -85,7 +85,7 @@ function editarTarea() {
 
     // Realizar una solicitud AJAX para enviar los archivos al servidor
     $.ajax({
-        url: "editar.php",
+        url: "php/editar.php",
         type: "POST",
         data: formData,
         dataType: "json",

@@ -7,7 +7,7 @@ $(document).ready(function () {
         const idTarea = 1; // Reemplaza con el ID de la tarea actual
 
         $.ajax({
-            url: 'verificarEntrega.php',
+            url: 'php/verificarEntrega.php',
             method: 'GET',
             data: {idEstudiante, idTarea},
             dataType: 'json',
@@ -49,7 +49,7 @@ $(document).ready(function () {
         // ... (tu código para obtener nombres de archivos)
 
         $.ajax({
-            url: 'obtenerArchivosEntregados.php',
+            url: 'php/obtenerArchivosEntregados.php',
             method: 'GET',
             data: {idEstudiante, idTarea},
             dataType: 'json',
