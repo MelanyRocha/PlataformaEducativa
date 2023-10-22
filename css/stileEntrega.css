@@ -1,130 +1,136 @@
 /* Estilos generales */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Estilos del encabezado */
 .titulo-tarea {
-  background-color: #134278;
-  color: white;
+    background-color: #134278;
+    color: white;
     padding: 20px;
 }
 
 .titulo-tarea h1 {
-  font-size: 32px;
+    font-size: 32px;
 }
 
 /* Estilos del contenido */
 .contenido {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
 }
 
 .contenido div {
-  width: 50%;
+    width: 50%;
 }
 
 .contenido p {
-  font-size: 25px;
+    font-size: 25px;
 }
 
 /* Estilos de la información */
 .tarea-info {
-  background-color: rgba(91, 204, 200, 0.11);
-  padding: 10px;
-  border-radius: 12px;
+    background-color: rgba(91, 204, 200, 0.11);
+    padding: 10px;
+    border-radius: 12px;
+    margin: 10px;
+    box-shadow: black 3px 3px 3px;
 }
 
 /* Estilos para el div de adjuntos */
 #adjuntos {
-  margin: 30px;
-  /* Aumentar el ancho del div */
-  width: 580px;
-  /* Aumentar el radio de las esquinas del div */
-  border-radius: 15px;
-  /* Cambiar el color de fondo del div */
-  background-color: #ffffff;
-  /* Agregar una sombra al div */
-  box-shadow: 5px 5px 10px 0 #888888;
+    margin: 30px;
+    /* Aumentar el ancho del div */
+    width: 580px;
+    /* Aumentar el radio de las esquinas del div */
+    border-radius: 15px;
+    /* Cambiar el color de fondo del div */
+    background-color: #ffffff;
+    /* Agregar una sombra al div */
+    box-shadow: 5px 5px 10px 0 #888888;
 }
 
 /* Estilos para los elementos de la lista */
 li {
-  /* Aumentar el radio de las esquinas de los elementos */
-  border-radius: 15px;
+    /* Aumentar el radio de las esquinas de los elementos */
+    border-radius: 15px;
 }
 
 
 /* Estilos para los botones */
 button {
-  /* Establecer un color de fondo y un borde redondeado */
-  background-color: #0078d4;
-  border-radius: 13px;
-  /* Establecer un color de texto y una fuente */
-  color: white;
-  font-family: Arial, sans-serif;
-  /* Establecer un margen y un relleno */
-  margin: 10px;
-  padding: 15px;
-  /* Establecer un display: inline-block para que se alineen horizontalmente */
-  display: inline-block;
+    /* Establecer un color de fondo y un borde redondeado */
+    background-color: #0078d4;
+    border-radius: 13px;
+    /* Establecer un color de texto y una fuente */
+    color: white;
+    font-family: Arial, sans-serif;
+    /* Establecer un margen y un relleno */
+    margin: 10px;
+    padding: 15px;
+    /* Establecer un display: inline-block para que se alineen horizontalmente */
+    display: inline-block;
 }
 
 /* Estilos para la lista de archivos */
 ul {
-  /* Establecer una lista sin viñetas */
-  list-style-type: none;
+    /* Establecer una lista sin viñetas */
+    list-style-type: none;
 }
 
 /* Estilos para los elementos de la lista */
 li {
-  /* Establecer un color de fondo y un borde redondeado */
-  background-color: #e6e6e6;
-  border-radius: 15px;
-  /* Establecer un margen y un relleno */
-  margin: 5px;
-  padding: 5px;
+    /* Establecer un color de fondo y un borde redondeado */
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    /* Establecer un margen y un relleno */
+    margin: 5px;
+    padding: 5px;
 }
 
 /* Estilos para el botón de eliminar */
 li button {
-  /* Establecer un color de fondo rojo y un borde redondeado */
-  background-color: #fd0004;
+    /* Establecer un color de fondo rojo y un borde redondeado */
+    background-color: #fd0004;
 }
 
 /* Estilos para el input de agregar archivo */
 input {
-   /* Establecer un margen y un relleno */
-  margin: 10px;
-  padding: 10px;
-  /* Establecer un display: block para que ocupe toda la línea */
-  display: block;
+    /* Establecer un margen y un relleno */
+    margin: 10px;
+    padding: 10px;
+    /* Establecer un display: block para que ocupe toda la línea */
+    display: block;
 }
+
 /* Estilos para el título */
 h3 {
-  /* Establecer un color de fondo y un borde redondeado */
-  background-color: rgba(240, 240, 240, 0);
-  border-radius: 10px;
-  /* Establecer un margen y un relleno */
-  margin: 10px;
-  padding: 10px;
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: 100%;
-  color: rgba(0,0,0,.87);
-  font-family: "Roboto",Helvetica,Arial,sans-serif;
-  font-weight: 400;
-  line-height: 1.25rem;
-  font-size: 0.875rem;
+    /* Establecer un color de fondo y un borde redondeado */
+    background-color: rgba(240, 240, 240, 0);
+    border-radius: 10px;
+    /* Establecer un margen y un relleno */
+    margin: 10px;
+    padding: 10px;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    color: rgba(0, 0, 0, .87);
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.25rem;
+    font-size: 0.875rem;
 }
+
 #entrega-info {
-    background-color: #f0f0f0; /* Fondo gris claro */
+    background-color: rgba(0, 52, 255, 0.07); /* Fondo gris claro */
     border: 1px solid #ccc; /* Borde gris */
     padding: 10px; /* Espaciado interno */
     margin: 10px 0; /* Espaciado externo */
     font-size: 16px; /* Tamaño de fuente */
     color: #333; /* Color del texto */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: black 3px 3px 3px; /* Sombra */
 }

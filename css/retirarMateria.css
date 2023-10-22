@@ -1,39 +1,39 @@
-header{
+header {
     height: 3rem;
     color: white;
     background-color: mediumseagreen;
     text-align: center;
 }
 
-header p{
+header p {
     font-size: 1.7rem;
 }
 
-#caja{
+#caja {
     width: 500px;
     margin: 2rem;
 }
 
-.list-group-item{
+.list-group-item {
     padding: 1.5rem 3rem;
 }
 
-.btn{
+.btn {
     width: 100%;
     margin-top: 30px;
 }
 
-#mensajeEliminacion{
+#mensajeEliminacion {
     display: none;
     color: darkred;
 }
 
-#mensajeConfirmacion{
+#mensajeConfirmacion {
     display: none;
     color: limegreen;
 }
 
-footer p{
+footer p {
     color: white;
     text-align: center;
     padding: 20px;

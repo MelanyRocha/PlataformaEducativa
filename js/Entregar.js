@@ -59,7 +59,7 @@ function entregar() {
         dataType: "json",
         contentType: false,
         processData: false,
-        success: function(response) {
+        success: function (response) {
             // Si se recibió una respuesta exitosa
             alert("Has enviado los siguientes archivos: " + archivos.join(", "));
             // Ocultar los botones de entregar y cancelar
@@ -67,14 +67,15 @@ function entregar() {
             $('#adjuntos').prop('disabled', true);
             // Mostrar el botón de editar
             $('#editar').show();
-            location.reload ()
+            location.reload()
         },
-        error: function(error) {
+        error: function (error) {
             // Si se recibió un error
             alert("Hubo un error al enviar los archivos.");
         }
     });
 }
+
 // Funcion para editar la entrega al servidor
 function editarTarea() {
     // Crear un formulario para enviar los archivos al servidor
@@ -91,7 +92,7 @@ function editarTarea() {
         dataType: "json",
         contentType: false,
         processData: false,
-        success: function(response) {
+        success: function (response) {
             // Si se recibió una respuesta exitosa
             alert("Has editado los siguientes archivos: " + archivos.join(", "));
             // Ocultar los botones de entregar y cancelar
@@ -99,9 +100,9 @@ function editarTarea() {
             $('#adjuntos').prop('disabled', true);
             // Mostrar el botón de editar
             $('#editar').show();
-            location.reload ()
+            location.reload()
         },
-        error: function(error) {
+        error: function (error) {
             // Si se recibió un error
             alert("Hubo un error al editar los archivos.");
         }

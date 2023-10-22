@@ -1,4 +1,3 @@
-
 let btnRetirar = document.getElementById('botonRetirar');
 let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 let mensajeSeleccion = document.getElementById("mensajeEliminacion");
@@ -14,13 +13,13 @@ btnRetirar.addEventListener('click', () => {
     }
 
     //Si no se ha seleccionado ninguna materia muestra un mensaje y vuelve arriba de la página
-    if(checkedCheckboxes.length === 0){
+    if (checkedCheckboxes.length === 0) {
         mensajeSeleccion.style.display = "block";
         window.scrollTo({
             top: 0,
             left: 0
         });
-    } else{
+    } else {
         mensajeSeleccion.style.display = "none";
 
         //Eliminar de la BD y Eliminar de la pantalla
@@ -30,14 +29,14 @@ btnRetirar.addEventListener('click', () => {
             $.ajax({
                 url: "php/retirarMateria.php",
                 type: "POST",
-                data: { materia: materia},
+                data: {materia: materia},
                 dataType: "json",
-                success: function(response) {
+                success: function (response) {
                     console.log("conección a la bd exitosa");
                     $("#resultado").empty();
                     $("#resultado").append($("<p></p>").addClass("alert alert-success").text(response.mensaje));
                 },
-                error: function(error) {
+                error: function (error) {
                     alert(error.responseText);
                 }
             });

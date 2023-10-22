@@ -17,13 +17,13 @@ $(document).ready(function () {
                 const editarButton = $('#editar-tarea-button');
                 const entregarButton = $('#entregar-tarea-button');
 
-                if (respuesta.status === 'no_editable' ) {
+                if (respuesta.status === 'no_editable') {
                     entregaInfo.html('La tarea no es editable.');
                     listaArchivos.empty();
                     obtenerNombresArchivos(idEstudiante, idTarea);
                     entregarButton.hide();
                     editarButton.hide();
-                }  else if (respuesta.status === 'no_entregada') {
+                } else if (respuesta.status === 'no_entregada') {
                     entregaInfo.html('La tarea no ha sido entregada.');
                     listaArchivos.empty();
                     entregarButton.show();
