@@ -1,8 +1,8 @@
 $(document).ready(function () {
     comprobarEntrega();
 
+    // Función para comprobar el estado de entrega de la tarea
     function comprobarEntrega() {
-        // Realiza una solicitud AJAX para verificar el estado de entrega
         const idEstudiante = 1; // Reemplaza con el ID del estudiante actual
         const idTarea = 1; // Reemplaza con el ID de la tarea actual
 
@@ -17,25 +17,30 @@ $(document).ready(function () {
                 const editarButton = $('#editar-tarea-button');
                 const entregarButton = $('#entregar-tarea-button');
 
-                if (respuesta.status === 'no_editable') {
-                    entregaInfo.html('La tarea no es editable.');
-                    listaArchivos.empty();
-                    obtenerNombresArchivos(idEstudiante, idTarea);
-                    entregarButton.hide();
-                    editarButton.hide();
-                } else if (respuesta.status === 'no_entregada') {
-                    entregaInfo.html('La tarea no ha sido entregada.');
-                    listaArchivos.empty();
-                    entregarButton.show();
-                    editarButton.hide();
-                } else if (respuesta.status === 'entregada') {
-                    entregaInfo.html('Los siguientes archivos fueron entregados ');
-                    listaArchivos.empty();
-                    entregarButton.hide();
-                    obtenerNombresArchivos(idEstudiante, idTarea);
-                    editarButton.show();
-                } else {
-                    console.error('Error en la solicitud AJAX: ' + respuesta.message);
+                switch (respuesta.status) {
+                    case 'no_editable':
+                        entregaInfo.html('La tarea no es editable.');
+                        listaArchivos.empty();
+                        obtenerNombresArchivos(idEstudiante, idTarea);
+                        entregarButton.hide();
+                        editarButton.hide();
+                        break;
+                    case 'no_entregada':
+                        entregaInfo.html('La tarea no ha sido entregada.');
+                        listaArchivos.empty();
+                        entregarButton.show();
+                        editarButton.hide();
+                        break;
+                    case 'entregada':
+                        entregaInfo.html('Los siguientes archivos fueron entregados');
+                        listaArchivos.empty();
+                        entregarButton.hide();
+                        obtenerNombresArchivos(idEstudiante, idTarea);
+                        editarButton.show();
+                        break;
+                    default:
+                        console.error('Error en la solicitud AJAX: ' + respuesta.message);
+                        break;
                 }
             },
             error: function (xhr, status, error) {
@@ -44,10 +49,8 @@ $(document).ready(function () {
         });
     }
 
-
+    // Función para obtener nombres de archivos entregados
     function obtenerNombresArchivos(idEstudiante, idTarea) {
-        // ... (tu código para obtener nombres de archivos)
-
         $.ajax({
             url: 'php/obtenerArchivosEntregados.php',
             method: 'GET',
@@ -56,9 +59,7 @@ $(document).ready(function () {
             success: function (archivosEntregados) {
                 if (archivosEntregados.length > 0) {
                     const listaNombres = archivosEntregados.split(','); // Divide la cadena en una lista
-                    listaNombres.forEach(function (nombre) {
-                        agregarNombreArchivo(nombre);
-                    });
+                    listaNombres.forEach(agregarNombreArchivo);
                 }
             },
             error: function (xhr, status, error) {
@@ -67,25 +68,19 @@ $(document).ready(function () {
         });
     }
 
+    // Función para agregar el nombre de un archivo a la lista
     function agregarNombreArchivo(nombre) {
-        // Crea un elemento li con el nombre y un botón para eliminar
         const li = $("<li></li>");
         li.html('<span>' + nombre + '</span> <button>X</button>');
-        // Añade un evento de clic al botón para eliminar el archivo
         li.children("button").click(eliminar);
-        // Añade el elemento li a la lista de archivos
-        const listaArchivos = $('#lista-archivos');
-        listaArchivos.append(li);
+        $('#lista-archivos').append(li);
     }
 
+    // Función para eliminar un archivo de la lista
     function eliminar(event) {
-        // Obtener el elemento li que contiene el botón
-        let li = $(event.target).parent();
-        // Obtener el nombre del archivo a eliminar
-        let nombre = li.children("span").text();
-        // Eliminar el nombre del archivo del array global
+        const li = $(event.target).parent();
+        const nombre = li.children("span").text();
         archivos = archivos.filter(a => a !== nombre);
-        // Eliminar el elemento li de la lista de archivos
-        li.remove(); // Corregido aquí
+        li.remove();
     }
 });

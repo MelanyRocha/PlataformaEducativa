@@ -1,57 +1,41 @@
-// Variable global que almacena los nombres de los archivos
+// Variable global para almacenar nombres de archivos
 let archivos = [];
 
-// Versión mejorada con jQuery
+// Agregar archivo a la lista
 function agregar(input) {
-    // Obtener el nombre del archivo seleccionado
     let archivo = input.files[0];
     if (archivo) {
         let nombre = archivo.name;
-        // Añadir el nombre del archivo al array global
         archivos.push(nombre);
-        // Crear un elemento li con el nombre y un botón para eliminar
         let li = $("<li></li>");
         li.html('<span>' + nombre + '</span> <button>X</button>');
-        // Añadir un evento de clic al botón para eliminar el archivo
         li.children("button").click(eliminar);
-        // Añadir el elemento li a la lista de archivos
-        let lista = $("#lista-archivos");
-        lista.append(li);
+        $("#lista-archivos").append(li);
     }
-    // Limpiar el input para poder seleccionar otro archivo
     input.value = "";
 }
 
-// Función para eliminar un archivo de la lista
+// Eliminar un archivo de la lista
 function eliminar(event) {
-    // Obtener el elemento li que contiene el botón
     let li = $(event.target).parent();
-    // Obtener el nombre del archivo a eliminar
     let nombre = li.children("span").text();
-    // Eliminar el nombre del archivo del array global
     archivos = archivos.filter(a => a !== nombre);
-    // Eliminar el elemento li de la lista de archivos
-    li.remove(); // Corregido aquí
+    li.remove();
 }
 
-// Función para cancelar la entrega
+// Cancelar la entrega
 function cancelar() {
-    // Eliminar todos los elementos li de la lista de archivos
-    let lista = $("#lista-archivos");
-    lista.empty();
-    // Vaciar el array global de archivos
+    $("#lista-archivos").empty();
     archivos = [];
 }
 
-// Función para enviar la entrega al servidor
+// Enviar la entrega al servidor
 function entregar() {
-    // Crear un formulario para enviar los archivos al servidor
     let formData = new FormData();
     for (let i = 0; i < archivos.length; i++) {
         formData.append('archivo[]', archivos[i]);
     }
 
-    // Realizar una solicitud AJAX para enviar los archivos al servidor
     $.ajax({
         url: "php/entregar.php",
         type: "POST",
@@ -60,31 +44,25 @@ function entregar() {
         contentType: false,
         processData: false,
         success: function (response) {
-            // Si se recibió una respuesta exitosa
-            alert("Has enviado los siguientes archivos: " + archivos.join(", "));
-            // Ocultar los botones de entregar y cancelar
+            alert("Archivos enviados: " + archivos.join(", "));
             $('#entregar').hide();
             $('#adjuntos').prop('disabled', true);
-            // Mostrar el botón de editar
-            $('#editar').show();
-            location.reload()
+            $('#editar-tarea-button').show();
+            location.reload();
         },
         error: function (error) {
-            // Si se recibió un error
-            alert("Hubo un error al enviar los archivos.");
+            alert("Error al enviar archivos.");
         }
     });
 }
 
-// Funcion para editar la entrega al servidor
+// Editar la entrega al servidor
 function editarTarea() {
-    // Crear un formulario para enviar los archivos al servidor
     let formData = new FormData();
     for (let i = 0; i < archivos.length; i++) {
         formData.append('archivo[]', archivos[i]);
     }
 
-    // Realizar una solicitud AJAX para enviar los archivos al servidor
     $.ajax({
         url: "php/editar.php",
         type: "POST",
@@ -93,18 +71,14 @@ function editarTarea() {
         contentType: false,
         processData: false,
         success: function (response) {
-            // Si se recibió una respuesta exitosa
-            alert("Has editado los siguientes archivos: " + archivos.join(", "));
-            // Ocultar los botones de entregar y cancelar
+            alert("Archivos editados: " + archivos.join(", "));
             $('#entregar').hide();
             $('#adjuntos').prop('disabled', true);
-            // Mostrar el botón de editar
-            $('#editar').show();
-            location.reload()
+            $('#editar-tarea-button').show();
+            location.reload();
         },
         error: function (error) {
-            // Si se recibió un error
-            alert("Hubo un error al editar los archivos.");
+            alert("Error al editar archivos.");
         }
     });
 }
