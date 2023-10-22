@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stileEntrega.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="obtenerTarea.js"></script>
+    <script src="verificarEntrega.js"></script>
+    <script src="Entregar.js"></script>
+    <title>Tarea</title>
+</head>
+<body>
+<div class="titulo-tarea">
+    <h1 id="titulo-tarea_h1">Titulo de la tarea</h1>
+</div>
+<div class="contenido">
+    <div class="tarea-info">
+        <p id="nombredocente">nombre docente</p>
+        <p id="fechaIni-fechafin">fecha publicacion tarea- fecha fin</p>
+    </div>
+    <div class="tarea-descripcion">
+        <p id="tarea-descripcion_p">descripcion de la tarea</p>
+    </div>
+    <!-- Aegamos el siguiente div para el campo de entrega -->
+    <div id="adjuntos">
+        <h3>Tu trabajo</h3>
+        <div id="entrega-info">
+            <!-- Aquí se mostrará la información de entrega (archivos entregados o mensaje alternativo) -->
+        </div>
+        <ul id="lista-archivos">
+        </ul>
+        <input type="file" id="agregar-archivo" onchange="agregar(this)" multiple>
+        <div>
+            <button onclick="entregar()" id="entregar" style="display: none">Entregar</button>
+            <button onclick="cancelar()" id="cancelar">Cancelar</button>
+            <button onclick="editarTarea()" id="editar-tarea-button" style="display:none">Editar</button>
+        </div>
+    </div>
+</div>
+</body>
