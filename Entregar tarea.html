@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/stileEntrega.css">
+    <link href="css/stileEntrega.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/obtenerTarea.js"></script>
     <script src="js/verificarEntrega.js"></script>
@@ -29,11 +29,11 @@
         </div>
         <ul id="lista-archivos">
         </ul>
-        <input type="file" id="agregar-archivo" onchange="agregar(this)" multiple>
+        <input id="agregar-archivo" multiple onchange="agregar(this)" type="file">
         <div>
-            <button onclick="entregar()" id="entregar" style="display: none">Entregar</button>
-            <button onclick="cancelar()" id="cancelar">Cancelar</button>
-            <button onclick="editarTarea()" id="editar-tarea-button" style="display:none">Editar</button>
+            <button id="entregar" onclick="entregar()" style="display: none">Entregar</button>
+            <button id="cancelar" onclick="cancelar()">Cancelar</button>
+            <button id="editar-tarea-button" onclick="editarTarea()" style="display:none">Editar</button>
         </div>
     </div>
 </div>
