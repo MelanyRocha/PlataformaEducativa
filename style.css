@@ -1,0 +1,68 @@
+/* Establecer el fondo a magenta pastel */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    background-color: hsl(257, 40%, 49%);
+}
+
+/* Centrar el contenido en la pantalla */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /*100vh*/
+}
+
+/* Estilo para el encabezado */
+header {
+    text-align: center;
+}
+
+/* Estilo para la lista de materias */
+#materias {
+    background-color: #f5e1ee;
+    border: 1px solid #000000;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+#materias h2 {
+    text-align: center;
+}
+
+/* Estilo para la lista de materias */
+#materias ol {
+    list-style-type: none;
+    padding: 0;/*0*/
+}
+
+#materias li {
+    margin: 30px 0;
+}
+
+#materias a {
+    color: #000000; /* Azul oscuro */
+    text-decoration: none;
+}
+
+#materias a:hover {
+    color: #4169E1; /* Azul real */
+}
+#contenidoBox {
+    margin: 30px;
+    /* Aumentar el ancho del div */
+    width: 850px;
+    /* Aumentar el radio de las esquinas del div */
+    border-radius: 10px;
+    /* Cambiar el color de fondo del div */
+    background-color: #ffffff;
+    /* Agregar una sombra al div */
+    box-shadow: 5px 5px 10px 0 #888888;
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
