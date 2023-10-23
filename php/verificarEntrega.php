@@ -29,7 +29,7 @@ if ($stmt->execute()) {
         $response['status'] = 'entregada';
         $response['message'] = 'La tarea ya ha sido entregada.';
     } else {
-        $response['status'] = 'editable';
+        $response['status'] = 'no_entregada';
         $response['message'] = 'La tarea puede editarse.';
     }
 
