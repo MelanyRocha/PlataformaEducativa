@@ -34,7 +34,7 @@ header {
 /* Estilo para la lista de materias */
 #materias ol {
     list-style-type: none;
-    padding: 0;/*0*/
+    padding: 0; /*0*/
 }
 
 #materias li {
@@ -49,6 +49,7 @@ header {
 #materias a:hover {
     color: #4169E1; /* Azul real */
 }
+
 #contenidoBox {
     margin: 30px;
     /* Aumentar el ancho del div */

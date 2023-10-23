@@ -9,7 +9,7 @@ if (isset($_POST['materia']) && isset($_POST['fechainicio']) && isset($_POST['fe
     $fechainicio = filter_var($_POST['fechainicio'], FILTER_SANITIZE_STRING);
     $fechafin = filter_var($_POST['fechafin'], FILTER_SANITIZE_STRING);
     // Preparar la consulta SQL para insertar la materia en la tabla
-    $sql = 'INSERT INTO Plataformaedu.materia (nombreMateria, fechaInicio, fechaFin) VALUES (:materia, :fechainicio, :fechafin)';
+    $sql = 'INSERT INTO Plataformaedu.materia (nombreMateria, fechaInicio, fechaFin, docente_idDocente) VALUES (:materia, :fechainicio, :fechafin, 1)';
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':materia', $materia);
     $stmt->bindParam(':fechainicio', $fechainicio);
@@ -27,6 +27,6 @@ if (isset($_POST['materia']) && isset($_POST['fechainicio']) && isset($_POST['fe
     $stmt->closeCursor();
     // Enviar la respuesta al cliente como JSON
     // Enviar la respuesta al cliente como JSON
-header('Content-Type: application/json');
-echo json_encode($response);
+    header('Content-Type: application/json');
+    echo json_encode($response);
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Cursos en Línea</title>
-    <link rel="stylesheet" type="text/css" href="css/stiloCrearMateria.css">
+    <link href="css/stiloCrearMateria.css" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/guardarCurso.js"></script>
 </head>
@@ -12,15 +12,15 @@
     <h1>Registro de Cursos en Línea</h1>
     <form action="php/guardarCurso.php" method="POST">
         <label for="Materia">Nombre de la materia:</label>
-        <input type="text" id="Materia" name="materia" required><br>
+        <input id="Materia" name="materia" required type="text"><br>
 
         <label for="fecha_inicio">Fecha de Inicio:</label>
-        <input type="date" id="fecha_inicio" name="fecha_inicio" required><br>
+        <input id="fecha_inicio" name="fecha_inicio" required type="date"><br>
 
         <label for="fecha_fin">Fecha de Finalización:</label>
-        <input type="date" id="fecha_fin" name="fecha_fin" required><br>
+        <input id="fecha_fin" name="fecha_fin" required type="date"><br>
 
-        <input type="submit" value="Guardar Curso" class="btn-crear">
+        <input class="btn-crear" type="submit" value="Guardar Curso">
     </form>
 </div>
 <div id="resultado"></div>
