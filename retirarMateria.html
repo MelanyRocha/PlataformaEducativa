@@ -6,12 +6,19 @@
     <title>Retirar Materias</title>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/retirarMateria.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/menu.css" />
 </head>
 <body>
 <header class="mx-auto">
     <p>Plataforma Educativa</p>
 </header>
 <main>
+    <img
+            id="menu-icon"
+            class="header-icons"
+            src="icons8-menú.svg"
+            alt="menu-icon"
+    />
     <div class="mx-auto" id="caja">
         <h1>Retirar Materias</h1>
         <p>Seleccione las materias que desea retirar.</p>
@@ -46,10 +53,19 @@
         </ul>
         <button class="btn btn-primary btn-lg mx-auto" id="botonRetirar"> Retirar Materias</button>
     </div>
+    <div id="menu" class="hide-menu">
+        <a href="index.html">Lista Materias</a>
+        <a href="Entregar%20tarea.html">Entregar tarea</a>
+        <a href="retirarMateria.html">Retirar materias</a>
+        <a href="creacionCurso.html">Crear Curso</a>
+        <a href="tareaPendiente.html">Tareas pendientes</a>
+        <a href="ordenComentario.html">Comentarios</a>
+    </div>
 </main>
 <footer class="bg-dark mx-auto">
     <p>Plataforma Educativa - Gestión II-2023</p>
 </footer>
+<script src="js/menu.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
         crossorigin="anonymous"

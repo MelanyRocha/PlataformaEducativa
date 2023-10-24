@@ -7,16 +7,21 @@ body {
 
 /* Centrar el contenido en la pantalla */
 .container {
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;
+    align-items: center;*/
     height: 60vh; /*100vh*/
 }
 
 /* Estilo para el encabezado */
 header {
     text-align: center;
+}
+
+h1{
+    padding-top: 30px;
 }
 
 /* Estilo para la lista de materias */
@@ -53,7 +58,7 @@ header {
 #contenidoBox {
     margin: 30px;
     /* Aumentar el ancho del div */
-    width: 850px;
+    width: 80%;
     /* Aumentar el radio de las esquinas del div */
     border-radius: 10px;
     /* Cambiar el color de fondo del div */
@@ -65,5 +70,5 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 800px;
 }
