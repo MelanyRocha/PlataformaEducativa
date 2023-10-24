@@ -15,7 +15,7 @@ $(document).ready(function () {
                 const entregaInfo = $('#entrega-info');
                 const listaArchivos = $('#lista-archivos');
                 const editarButton = $('#editar-tarea-button');
-                const entregarButton = $('#entregar-tarea-button');
+                const entregarButton = $('#entregar');
 
                 switch (respuesta.status) {
                     case 'no_editable':
