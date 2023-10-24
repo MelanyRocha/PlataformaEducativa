@@ -4,7 +4,7 @@ global $pdo;
 include 'conexion.php';
 
 // Consulta SQL
-$query = "SELECT t.tituloTarea, t.descripcionTarea, d.nombreDocente, d.apellidoDocente, t.fechaInicioTarea, t.fechaFinTarea
+$query = "SELECT t.tituloTarea, m.nombreMateria, t.descripcionTarea, d.nombreDocente, d.apellidoDocente, t.fechaInicioTarea, t.fechaFinTarea
     FROM Plataformaedu.tarea AS t, Plataformaedu.materia AS m, Plataformaedu.docente AS d
     WHERE t.materia_idMateria = m.idMateria
     AND m.docente_idDocente = d.idDocente
@@ -23,7 +23,7 @@ try {
         if ($fila) {
             $datos = array(
                 'titulo' => $fila['tituloTarea'],
-                'nombre_docente' => $fila['nombreDocente'] . ' ' . $fila['apellidoDocente'],
+                'nombre_docente' => $fila['nombreDocente'] . ' ' . $fila['apellidoDocente'] . ' - ' . $fila['nombreMateria'],
                 'fecha' => $fila['fechaInicioTarea'] . ' - ' . $fila['fechaFinTarea'],
                 'descripcion' => $fila['descripcionTarea']
             );
