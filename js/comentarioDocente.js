@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'comentarioDocente.php', true);
+        xhr.open('POST', 'php/comentarioDocente.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
