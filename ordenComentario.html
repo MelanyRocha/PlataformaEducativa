@@ -6,14 +6,14 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/estiloComentariosD.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/menu.css" />
+    <link href="css/menu.css" rel="stylesheet"/>
 </head>
 <body>
 <img
-        id="menu-icon"
-        class="header-icons"
-        src="icons8-menú.svg"
         alt="menu-icon"
+        class="header-icons"
+        id="menu-icon"
+        src="icons8-menú.svg"
 />
 <div class="container mt-4">
     <div class="row">
@@ -36,7 +36,8 @@
                     <form id="comment-form">
                         <div class="form-group">
                             <label for="comment"></label>
-                            <textarea class="form-control" id="comment" maxlength="1500" placeholder="Escribe tu comentario"
+                            <textarea class="form-control" id="comment" maxlength="1500"
+                                      placeholder="Escribe tu comentario"
                                       rows="4"></textarea>
                         </div>
                         <button class="btn btn-primary" type="submit">Enviar</button>
@@ -46,7 +47,7 @@
         </div>
     </div>
 </div>
-<div id="menu" class="hide-menu">
+<div class="hide-menu" id="menu">
     <a href="index.html">Lista Materias</a>
     <a href="Entregar%20tarea.html">Entregar tarea</a>
     <a href="retirarMateria.html">Retirar materias</a>

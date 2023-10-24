@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         contenidoTarea.innerHTML = `
             <h3>${tarea.nombre}</h3>
-            <p><strong>Entrega Día:</strong> ${tarea.entrega_dia}</p>
-            <p><strong>Entrega Hora:</strong> ${tarea.entrega_hora}</p>
+            <p><strong>Día de entrega:</strong> ${tarea.entrega_dia}</p>
+            <p><strong>Hora de entrega:</strong> ${tarea.entrega_hora}</p>
         `;
     }
 
