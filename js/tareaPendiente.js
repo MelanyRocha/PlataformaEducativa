@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const contenidoTarea = document.getElementById("contenidoTarea");
 
     function cargarTareasPendientes() {
-        fetch("tareaPendiente.php")
+        fetch("php/tareaPendiente.php")
             .then((response) => response.json())
             .then((tareas) => {
                 tareasLista.innerHTML = "";
