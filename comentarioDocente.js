@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const commentForm = document.getElementById('comment-form');
     const commentTextArea = document.getElementById('comment');
     const commentsList = document.getElementById('comments-list');
 
-    commentForm.addEventListener('submit', function(event) {
+    commentForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const commentText = commentTextArea.value;
         if (commentText.trim() === '') {
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'comentarios.php', true);
+        xhr.open('POST', 'comentarioDocente.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 loadComments();
             }
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadComments() {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'comentarios.php', true);
-        xhr.onreadystatechange = function() {
+        xhr.open('GET', 'comentarioDocente.php', true);
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 commentsList.innerHTML = xhr.responseText;
             }
